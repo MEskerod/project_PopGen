@@ -28,6 +28,10 @@ See Project_fst.ipynb
 ## Relate
 ### All individuals
 Relate is used on all the individuals and then used to viasulize trees to get an impression of the relationship between populations
+Filter .vcf.gz to only contain the individuals in the .txt file
+```
+bcftools view -S all_inds.txt -o filtered_chr3_460_540_phased.vcf chr3_460_540_phased.vcf.gz
+```
 Convert .vcf.gz tp .haps
 ```
 ~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3.haps --sample chr3.sample -i chr3_460_540_phased
