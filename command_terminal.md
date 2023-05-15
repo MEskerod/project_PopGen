@@ -30,7 +30,8 @@ See Project_fst.ipynb
 Relate is used on all the individuals and then used to viasulize trees to get an impression of the relationship between populations
 Filter .vcf.gz to only contain the individuals in the .txt file
 ```
-bcftools view -S all_inds.txt -o filtered_chr3_460_540_phased.vcf chr3_460_540_phased.vcf.gz
+awk '{print $1}' all_inds.txt > all_ids.txt
+bcftools view -S all_ids.txt -o filtered_chr3_460_540_phased.vcf chr3_460_540_phased.vcf.gz
 ```
 Convert .vcf.gz tp .haps
 ```
