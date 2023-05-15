@@ -39,7 +39,7 @@ Convert .vcf.gz tp .haps
 ```
 Repetitive an unreliably sequenced regions is masked and each variant is assigned to ancestral or derived
 ```
-~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps chr3.haps --sample chr3.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta -o prep.chr3
+~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps chr3.haps --sample chr3.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o prep.chr3
 ```
 Run relate
 ```
@@ -51,6 +51,11 @@ Estimate historic population size
 ```
 ### Populations 
 #### YRI
+Filter .vcf.gz to only contain the individuals in the .txt file
+```
+awk '{print $1}' YRI_inds.txt > YRI_ids.txt
+bcftools view -S YRI_ids.txt -o filtered_chr3_YRI_460_540_phased.vcf chr3_YRI_460_540_phased.vcf.gz
+```
 Convert .vcf.gz tp .haps
 ```
 ~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_YRI.haps --sample chr3_YRI.sample -i chr3_YRI_460_540_phased
