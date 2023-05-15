@@ -58,11 +58,11 @@ bcftools view -S YRI_ids.txt -o filtered_chr3_YRI_460_540_phased.vcf chr3_YRI_46
 ```
 Convert .vcf.gz tp .haps
 ```
-~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_YRI.haps --sample chr3_YRI.sample -i chr3_YRI_460_540_phased
+~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_YRI.haps --sample chr3_YRI.sample -i filtered_chr3_YRI_460_540_phased
 ```
 Repetitive an unreliably sequenced regions is masked and each variant is assigned to ancestral or derived
 ```
-~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps chr3_YRI.haps --sample chr3_YRI.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta -o prep.chr3_YRI
+~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps chr3_YRI.haps --sample chr3_YRI.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o prep.chr3_YRI
 ```
 Run relate
 ```
@@ -80,10 +80,11 @@ Infer positive selction
 ```
 awk '{print $1}' LWK_inds.txt > LWK_ids.txt
 bcftools view -S LWK_ids.txt -o filtered_chr3_LWK_460_540_phased.vcf chr3_LWK_460_540_phased.vcf.gz
+```
+```
+~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_LWK.haps --sample chr3_LWK.sample -i filtered_chr3_LWK_460_540_phased
 
-~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_LWK.haps --sample chr3_LWK.sample -i chr3_LWK_460_540_phased
-
-~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps chr3_LWK.haps --sample chr3_LWK.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta -o prep.chr3_LWK
+~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps chr3_LWK.haps --sample chr3_LWK.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o prep.chr3_LWK
 
 ~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 30000 --haps prep.chr3_LWK.haps.gz --sample prep.chr3_LWK.sample.gz --map genetic_map_chr3_combined_b37.txt -o chr3_LWK_relate
 
