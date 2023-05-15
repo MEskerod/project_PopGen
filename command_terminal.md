@@ -35,7 +35,7 @@ bcftools view -S all_ids.txt -o filtered_chr3_460_540_phased.vcf chr3_460_540_ph
 ```
 Convert .vcf.gz tp .haps
 ```
-~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3.haps --sample chr3.sample -i chr3_460_540_phased
+~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3.haps --sample chr3.sample -i filtered_chr3_460_540_phased
 ```
 Repetitive an unreliably sequenced regions is masked and each variant is assigned to ancestral or derived
 ```
