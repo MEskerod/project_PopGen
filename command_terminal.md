@@ -1,38 +1,67 @@
 # Commands for project in Population Genomics
 The following is command that has been ran in a terminal
+## Preperation of files
+The files contains more individuals than the files with meta data. These individuals are filtered out. 
+Furthermore a header needs to be added to the meta data files for Relate 
+```
+awk '{print $1}' all_inds.txt > all_ids.txt
+sed -i '1s/^/sample population  region  sex\n/' all_inds.txt
+bcftools view -S all_ids.txt -o filtered_chr3_460_540_phased.vcf chr3_460_540_phased.vcf.gz
+```
+```
+awk '{print $1}' YRI_inds.txt > YRI_ids.txt
+sed -i '1s/^/sample population  region  sex\n/' YRI_inds.txt
+bcftools view -S YRI_ids.txt -o filtered_chr3_YRI_460_540_phased.vcf chr3_YRI_460_540_phased.vcf.gz
+```
+```
+awk '{print $1}' LWK_inds.txt > LWK_ids.txt
+sed -i '1s/^/sample population  region  sex\n/' LWK_inds.txt
+bcftools view -S LWK_ids.txt -o filtered_chr3_LWK_460_540_phased.vcf chr3_LWK_460_540_phased.vcf.gz
+```
+```
+awk '{print $1}' GWD_inds.txt > GWD_ids.txt
+sed -i '1s/^/sample population  region  sex\n/' GWD_inds.txt
+bcftools view -S GWD_ids.txt -o filtered_chr3_GWD_460_540_phased.vcf chr3_GWD_460_540_phased.vcf.gz
+```
+```
+awk '{print $1}' MSL_inds.txt > MSL_ids.txt
+sed -i '1s/^/sample population  region  sex\n/' MSL_inds.txt
+bcftools view -S MSL_ids.txt -o filtered_chr3_MSL_460_540_phased.vcf chr3_MSL_460_540_phased.vcf.gz
+```
+```
+awk '{print $1}' ESN_inds.txt > ESN_ids.txt
+sed -i '1s/^/sample population  region  sex\n/' ESN_inds.txt
+bcftools view -S ESN_ids.txt -o filtered_chr3_ESN_460_540_phased.vcf chr3_ESN_460_540_phased.vcf.gz
+```
 ## Fst calculations
 For Fst calculations the tool vcftools was used to make comparisons between all five populations in pairs
 ```
-vcftools --gzvcf chr3_460_540_phased.vcf.gz --weir-fst-pop YRI_inds.txt --weir-fst-pop LWK_inds.txt --out YRI-LWK 
+vcftools --vcf filtered_chr3_460_540_phased.vcf.gz --weir-fst-pop YRI_inds.txt --weir-fst-pop LWK_inds.txt --out YRI-LWK 
 
-vcftools --gzvcf chr3_460_540_phased.vcf.gz --weir-fst-pop YRI_inds.txt --weir-fst-pop GWD_inds.txt --out YRI-GWD
+vcftools --vcf filtered_chr3_460_540_phased.vcf.gz --weir-fst-pop YRI_inds.txt --weir-fst-pop GWD_inds.txt --out YRI-GWD
 
-vcftools --gzvcf chr3_460_540_phased.vcf.gz --weir-fst-pop YRI_inds.txt --weir-fst-pop MSL_inds.txt --out YRI-MSL
+vcftools --vcf filtered_chr3_460_540_phased.vcf.gz --weir-fst-pop YRI_inds.txt --weir-fst-pop MSL_inds.txt --out YRI-MSL
 
-vcftools --gzvcf chr3_460_540_phased.vcf.gz --weir-fst-pop YRI_inds.txt --weir-fst-pop ESN_inds.txt --out YRI-ESN 
+vcftools --vcf filtered_chr3_460_540_phased.vcf.gz --weir-fst-pop YRI_inds.txt --weir-fst-pop ESN_inds.txt --out YRI-ESN 
 
-vcftools --gzvcf chr3_460_540_phased.vcf.gz --weir-fst-pop LWK_inds.txt --weir-fst-pop GWD_inds.txt --out LWK-GWD
+vcftools --vcf filtered_chr3_460_540_phased.vcf.gz --weir-fst-pop LWK_inds.txt --weir-fst-pop GWD_inds.txt --out LWK-GWD
 
-vcftools --gzvcf chr3_460_540_phased.vcf.gz --weir-fst-pop LWK_inds.txt --weir-fst-pop MSL_inds.txt --out LWK-MSL
+vcftools --vcf filtered_chr3_460_540_phased.vcf.gz --weir-fst-pop LWK_inds.txt --weir-fst-pop MSL_inds.txt --out LWK-MSL
 
-vcftools --gzvcf chr3_460_540_phased.vcf.gz --weir-fst-pop LWK_inds.txt --weir-fst-pop ESN_inds.txt --out LWK-ESN
+vcftools --vcf filtered_chr3_460_540_phased.vcf.gz --weir-fst-pop LWK_inds.txt --weir-fst-pop ESN_inds.txt --out LWK-ESN
 
-vcftools --gzvcf chr3_460_540_phased.vcf.gz --weir-fst-pop GWD_inds.txt --weir-fst-pop MSL_inds.txt --out GWD-MSL
+vcftools --vcf filtered_chr3_460_540_phased.vcf.gz --weir-fst-pop GWD_inds.txt --weir-fst-pop MSL_inds.txt --out GWD-MSL
 
-vcftools --gzvcf chr3_460_540_phased.vcf.gz --weir-fst-pop GWD_inds.txt --weir-fst-pop ESN_inds.txt --out GWD-ESN
+vcftools --vcf filtered_chr3_460_540_phased.vcf.gz --weir-fst-pop GWD_inds.txt --weir-fst-pop ESN_inds.txt --out GWD-ESN
 
-vcftools --gzvcf chr3_460_540_phased.vcf.gz --weir-fst-pop MSL_inds.txt --weir-fst-pop ESN_inds.txt --out MSL-ESN
+vcftools --vcf filtered_chr3_460_540_phased.vcf.gz --weir-fst-pop MSL_inds.txt --weir-fst-pop ESN_inds.txt --out MSL-ESN
 ```
 The files was read into R for further processing.
 See Project_fst.ipynb
 ## Relate
 ### All individuals
 Relate is used on all the individuals and then used to viasulize trees to get an impression of the relationship between populations
-Filter .vcf.gz to only contain the individuals in the .txt file
-```
-awk '{print $1}' all_inds.txt > all_ids.txt
-bcftools view -S all_ids.txt -o filtered_chr3_460_540_phased.vcf chr3_460_540_phased.vcf.gz
-```
+
 Convert .vcf.gz tp .haps
 ```
 ~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3.haps --sample chr3.sample -i filtered_chr3_460_540_phased
@@ -51,11 +80,6 @@ Estimate historic population size
 ```
 ### Populations 
 #### YRI
-Filter .vcf.gz to only contain the individuals in the .txt file
-```
-awk '{print $1}' YRI_inds.txt > YRI_ids.txt
-bcftools view -S YRI_ids.txt -o filtered_chr3_YRI_460_540_phased.vcf chr3_YRI_460_540_phased.vcf.gz
-```
 Convert .vcf.gz tp .haps
 ```
 ~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_YRI.haps --sample chr3_YRI.sample -i filtered_chr3_YRI_460_540_phased
@@ -78,10 +102,6 @@ Infer positive selction
 ```
 #### LWK
 ```
-awk '{print $1}' LWK_inds.txt > LWK_ids.txt
-bcftools view -S LWK_ids.txt -o filtered_chr3_LWK_460_540_phased.vcf chr3_LWK_460_540_phased.vcf.gz
-```
-```
 ~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_LWK.haps --sample chr3_LWK.sample -i filtered_chr3_LWK_460_540_phased
 
 ~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps chr3_LWK.haps --sample chr3_LWK.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o prep.chr3_LWK
@@ -93,10 +113,6 @@ bcftools view -S LWK_ids.txt -o filtered_chr3_LWK_460_540_phased.vcf chr3_LWK_46
 ~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i popsize_LWK -m 1.25e-8 --poplabels LWK_inds.txt -o selection_relate_LWK
 ```
 #### GWD
-```
-awk '{print $1}' GWD_inds.txt > GWD_ids.txt
-bcftools view -S GWD_ids.txt -o filtered_chr3_GWD_460_540_phased.vcf chr3_GWD_460_540_phased.vcf.gz
-```
 ```
 ~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_GWD.haps --sample chr3_GWD.sample -i filtered_chr3_GWD_460_540_phased
 
@@ -110,10 +126,6 @@ bcftools view -S GWD_ids.txt -o filtered_chr3_GWD_460_540_phased.vcf chr3_GWD_46
 ```
 #### MSL
 ```
-awk '{print $1}' MSL_inds.txt > MSL_ids.txt
-bcftools view -S MSL_ids.txt -o filtered_chr3_MSL_460_540_phased.vcf chr3_MSL_460_540_phased.vcf.gz
-```
-```
 ~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_MSL.haps --sample chr3_MSL.sample -i filtered_chr3_MSL_460_540_phased
 
 ~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps chr3_MSL.haps --sample chr3_MSL.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o prep.chr3_MSL
@@ -125,10 +137,6 @@ bcftools view -S MSL_ids.txt -o filtered_chr3_MSL_460_540_phased.vcf chr3_MSL_46
 ~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i popsize_MSL -m 1.25e-8 --poplabels MSL_inds.txt -o selection_relate_MSL
 ```
 #### ESN
-```
-awk '{print $1}' ESN_inds.txt > ESN_ids.txt
-bcftools view -S ESN_ids.txt -o filtered_chr3_ESN_460_540_phased.vcf chr3_ESN_460_540_phased.vcf.gz
-```
 ```
 ~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_ESN.haps --sample chr3_ESN.sample -i filtered_chr3_ESN_460_540_phased
 
