@@ -93,5 +93,50 @@ bcftools view -S LWK_ids.txt -o filtered_chr3_LWK_460_540_phased.vcf chr3_LWK_46
 ~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i popsize_LWK -m 1.25e-8 --poplabels LWK_inds.txt -o selection_relate_LWK
 ```
 #### GWD
+```
+awk '{print $1}' GWD_inds.txt > GWD_ids.txt
+bcftools view -S GWD_ids.txt -o filtered_chr3_GWD_460_540_phased.vcf chr3_GWD_460_540_phased.vcf.gz
+```
+```
+~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_GWD.haps --sample chr3_GWD.sample -i filtered_chr3_GWD_460_540_phased
+
+~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps chr3_GWD.haps --sample chr3_GWD.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o prep.chr3_GWD
+
+~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 30000 --haps prep.chr3_GWD.haps.gz --sample prep.chr3_GWD.sample.gz --map genetic_map_chr3_combined_b37.txt -o chr3_GWD_relate
+
+~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -i chr3_GWD_relate -m 1.25e-8 --poplabels GWD_inds.txt -o popsize_GWD --threshold 0
+
+~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i popsize_GWD -m 1.25e-8 --poplabels GWD_inds.txt -o selection_relate_GWD
+```
 #### MSL
+```
+awk '{print $1}' MSL_inds.txt > MSL_ids.txt
+bcftools view -S MSL_ids.txt -o filtered_chr3_MSL_460_540_phased.vcf chr3_MSL_460_540_phased.vcf.gz
+```
+```
+~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_MSL.haps --sample chr3_MSL.sample -i filtered_chr3_MSL_460_540_phased
+
+~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps chr3_MSL.haps --sample chr3_MSL.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o prep.chr3_MSL
+
+~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 30000 --haps prep.chr3_MSL.haps.gz --sample prep.chr3_MSL.sample.gz --map genetic_map_chr3_combined_b37.txt -o chr3_MSL_relate
+
+~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -i chr3_MSL_relate -m 1.25e-8 --poplabels MSL_inds.txt -o popsize_MSL --threshold 0
+
+~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i popsize_MSL -m 1.25e-8 --poplabels MSL_inds.txt -o selection_relate_MSL
+```
 #### ESN
+```
+awk '{print $1}' ESN_inds.txt > ESN_ids.txt
+bcftools view -S ESN_ids.txt -o filtered_chr3_ESN_460_540_phased.vcf chr3_ESN_460_540_phased.vcf.gz
+```
+```
+~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_ESN.haps --sample chr3_ESN.sample -i filtered_chr3_ESN_460_540_phased
+
+~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps chr3_ESN.haps --sample chr3_ESN.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o prep.chr3_ESN
+
+~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 30000 --haps prep.chr3_ESN.haps.gz --sample prep.chr3_ESN.sample.gz --map genetic_map_chr3_combined_b37.txt -o chr3_ESN_relate
+
+~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -i chr3_ESN_relate -m 1.25e-8 --poplabels ESN_inds.txt -o popsize_ESN --threshold 0
+
+~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i popsize_ESN -m 1.25e-8 --poplabels ESN_inds.txt -o selection_relate_ESN
+```
