@@ -148,3 +148,44 @@ Infer positive selction
 
 ~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i popsize_ESN -m 1.25e-8 --poplabels ESN_inds.txt -o selection_relate_ESN
 ```
+## CLUES
+ClUES can infer selection from trees build by Relate 
+The programs that is neeed to run CLUES is copied from the GitHub repository
+
+### YRI
+Use relate to sample branch lengths
+```
+~/populationgenomics/software/relate/scripts/SampleBranchLengths/SampleBranchLengths.sh -i chr3_YRI_relate -o chr3_YRI_relate_resample -m 1.25e-8 --coal popsize_YRI.coal --format b --num_samples 100
+```
+Run CLUES from CLUES folder
+```
+python inference.py --times ~/populationgenomics/students/mari256s/project/relate/YRI/chr3_YRI_relate_resample --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_YRI
+```
+### LWK
+```
+~/populationgenomics/software/relate/scripts/SampleBranchLengths/SampleBranchLengths.sh -i chr3_LWK_relate -o chr3_LWK_relate_resample -m 1.25e-8 --coal popsize_LWK.coal --format b --num_samples 100
+```
+```
+python inference.py --times ~/populationgenomics/students/mari256s/project/relate/LWK/chr3_LWK_relate_resample --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_LWK
+```
+### GWD
+```
+~/populationgenomics/software/relate/scripts/SampleBranchLengths/SampleBranchLengths.sh -i chr3_GWD_relate -o chr3_GWD_relate_resample -m 1.25e-8 --coal popsize_GWD.coal --format b --num_samples 100
+```
+```
+python inference.py --times ~/populationgenomics/students/mari256s/project/relate/GWD/chr3_GWD_relate_resample --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_GWD
+```
+### MSL
+```
+~/populationgenomics/software/relate/scripts/SampleBranchLengths/SampleBranchLengths.sh -i chr3_MSL_relate -o chr3_MSL_relate_resample -m 1.25e-8 --coal popsize_MSL.coal --format b --num_samples 100
+```
+```
+python inference.py --times ~/populationgenomics/students/mari256s/project/relate/MSL/chr3_MSL_relate_resample --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_MSL
+```
+### ESN
+```
+~/populationgenomics/software/relate/scripts/SampleBranchLengths/SampleBranchLengths.sh -i chr3_ESN_relate -o chr3_ESN_relate_resample -m 1.25e-8 --coal popsize_ESN.coal --format b --num_samples 100
+```
+```
+python inference.py --times ~/populationgenomics/students/mari256s/project/relate/ESN/chr3_ESN_relate_resample --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_ESN
+```
