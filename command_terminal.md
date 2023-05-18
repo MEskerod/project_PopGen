@@ -163,12 +163,18 @@ Run CLUES from CLUES folder
 ```
 python inference.py --times ~/populationgenomics/students/mari256s/project/relate/YRI/chr3_YRI_relate_resample --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_YRI 
 ```
+Plot trajectory 
+```
+python plot_traj_Maria.py ~/populationgenomics/students/mari256s/project/clues/selection_clues_YRI ~/populationgenomics/students/mari256s/project/clues/traj_plots/traj_clues_YRI
+```
 ### LWK
 ```
 ~/populationgenomics/software/relate/scripts/SampleBranchLengths/SampleBranchLengths.sh -i chr3_LWK_relate -o chr3_LWK_relate_resample -m 1.25e-8 --coal popsize_LWK.coal --format b --num_samples 100
 ```
 ```
 python inference.py --times ~/populationgenomics/students/mari256s/project/relate/LWK/chr3_LWK_relate_resample --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_LWK
+
+python plot_traj_Maria.py ~/populationgenomics/students/mari256s/project/clues/selection_clues_LWK ~/populationgenomics/students/mari256s/project/clues/traj_plots/traj_clues_LWK
 ```
 ### GWD
 ```
@@ -176,6 +182,8 @@ python inference.py --times ~/populationgenomics/students/mari256s/project/relat
 ```
 ```
 python inference.py --times ~/populationgenomics/students/mari256s/project/relate/GWD/chr3_GWD_relate_resample --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_GWD
+
+python plot_traj_Maria.py ~/populationgenomics/students/mari256s/project/clues/selection_clues_GWD ~/populationgenomics/students/mari256s/project/clues/traj_plots/traj_clues_GWD
 ```
 ### MSL
 ```
@@ -183,6 +191,8 @@ python inference.py --times ~/populationgenomics/students/mari256s/project/relat
 ```
 ```
 python inference.py --times ~/populationgenomics/students/mari256s/project/relate/MSL/chr3_MSL_relate_resample --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_MSL
+
+python plot_traj_Maria.py ~/populationgenomics/students/mari256s/project/clues/selection_clues_MSL ~/populationgenomics/students/mari256s/project/clues/traj_plots/traj_clues_MSL
 ```
 ### ESN
 ```
@@ -190,4 +200,6 @@ python inference.py --times ~/populationgenomics/students/mari256s/project/relat
 ```
 ```
 python inference.py --times ~/populationgenomics/students/mari256s/project/relate/ESN/chr3_ESN_relate_resample --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_ESN
+
+python plot_traj_Maria.py ~/populationgenomics/students/mari256s/project/clues/selection_clues_ESN ~/populationgenomics/students/mari256s/project/clues/traj_plots/traj_clues_ESN
 ```
