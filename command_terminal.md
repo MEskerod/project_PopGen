@@ -152,6 +152,8 @@ Infer positive selction
 ClUES can infer selection from trees build by Relate 
 The programs that is neeed to run CLUES is copied from the GitHub repository
 
+The recommendation in the CLUES paper is to use it on 10<sup>2</sup>-10<sup>3</sup> bp regions. Regions that might have some selection according to other results is chosen.
+
 ### YRI
 Use relate to sample branch lengths
 ```
@@ -159,7 +161,6 @@ Use relate to sample branch lengths
 ```
 Run CLUES from CLUES folder
 ```
-python inference.py --times ~/populationgenomics/students/mari256s/project/relate/YRI/chr3_YRI_relate_resample --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_YRI
 ```
 ### LWK
 ```
