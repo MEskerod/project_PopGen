@@ -161,7 +161,7 @@ Use relate to sample branch lengths
 ```
 Run CLUES from CLUES folder
 ```
-python inference.py --times ~/populationgenomics/students/mari256s/project/relate/YRI/chr3_YRI_relate_resample_52443280 --burnin 100 --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_YRI 
+python inference.py --times ~/populationgenomics/students/mari256s/project/relate/YRI/chr3_YRI_relate_resample --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_YRI 
 ```
 ### LWK
 ```
