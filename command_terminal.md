@@ -78,6 +78,12 @@ Estimate historic population size
 ```
 ~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -i chr3_relate -m 1.25e-8 --poplabels all_inds.txt -o popsize --threshold 0
 ```
+#### Building trees
+Trees are build at different positions of the region to get a sence on the relation between the populations. 
+```
+~/populationgenomics/software/relate/scripts/TreeView/TreeView.sh --haps chr3.haps --sample chr3.sample --anc popsize.anc --mut popsize.mut --poplabels ~/populationgenomics/students/mari256s/project/all_inds.txt --years_per_gen 28 -o tree_$POSITION --bp_of_interest $POSITION -o $POSITION_tree
+```
+
 ### Populations 
 #### YRI
 Convert .vcf.gz tp .haps
