@@ -209,3 +209,14 @@ python inference.py --times ~/populationgenomics/students/mari256s/project/relat
 
 python plot_traj_Maria.py ~/populationgenomics/students/mari256s/project/clues/selection_clues_ESN ~/populationgenomics/students/mari256s/project/clues/traj_plots/traj_clues_ESN
 ```
+### Specific regions
+
+```
+~/populationgenomics/software/relate/scripts/SampleBranchLengths/SampleBranchLengths.sh -i popsize_GWD -o chr3_GWD_relate_resample_460-470 -m 1.25e-8 --coal popsize_GWD.coal --format b --num_samples 500 --first-bp 46000000 --last-bp 47000000
+```
+```
+python inference.py --times ~/populationgenomics/students/mari256s/project/relate/GWD/chr3_GWD_relate_resample_460-470 --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_GWD_460-470
+
+python plot_traj_Maria.py ~/populationgenomics/students/mari256s/project/clues/selection_clues_GWD_460-470 ~/populationgenomics/students/mari256s/project/clues/traj_plots/traj_clues_GWD_460-470
+```
+
