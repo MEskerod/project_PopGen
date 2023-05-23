@@ -167,13 +167,13 @@ CLUES should be used in idividual SNPs
 ### GWD
 Use relate to sample branch lengths
 ```
-~/populationgenomics/software/relate/scripts/SampleBranchLengths/SampleBranchLengths.sh -i popsize_GWD -o chr3_GWD_relate_resample_46658737_500 -m 1.25e-8 --coal popsize_GWD.coal --format b --num_samples 500 --first-bp 46658737 --last-bp 46658737
+~/populationgenomics/software/relate/scripts/SampleBranchLengths/SampleBranchLengths.sh -i popsize_GWD -o chr3_GWD_relate_resample_46658737_500 -m 1.25e-8 --coal popsize_GWD.coal --format b --num_samples 300 --first-bp 46658737 --last-bp 46658737
 ```
 Run CLUES from CLUES folder
 ```
-python inference.py --times ~/populationgenomics/students/mari256s/project/relate/GWD/chr3_GWD_relate_resample_46658737 --coal ~/populationgenomics/students/mari256s/project/relate/GWD/popsize_GWD.coal --burnin 60 --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_GWD_46658737_500_burnin_coal 
+python inference.py --times ~/populationgenomics/students/mari256s/project/relate/GWD/chr3_GWD_relate_resample_46658737 --coal ~/populationgenomics/students/mari256s/project/relate/GWD/popsize_GWD.coal --burnin 60 --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_GWD_46658737_300_burnin_coal 
 ```
 Plot trajectory 
 ```
-python plot_traj_Maria.py ~/populationgenomics/students/mari256s/project/clues/selection_clues_GWD_46658737_burnin_coal  ~/populationgenomics/students/mari256s/project/clues/traj_plots/traj_clues_GWD_46658737_burnin_coal
+python plot_traj_Maria.py ~/populationgenomics/students/mari256s/project/clues/selection_clues_GWD_46658737_300_burnin_coal  ~/populationgenomics/students/mari256s/project/clues/traj_plots/traj_clues_GWD_46658737_300_burnin_coal
 ```
