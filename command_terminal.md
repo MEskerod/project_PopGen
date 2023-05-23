@@ -81,13 +81,13 @@ Estimate historic population size
 #### Building trees
 Trees are build at different positions of the region to get a sence on the relation between the populations. 
 ```
-~/populationgenomics/software/relate/scripts/TreeView/TreeView.sh --haps chr3.haps --sample chr3.sample --anc popsize.anc --mut popsize.mut --poplabels ~/populationgenomics/students/mari256s/project/all_inds.txt --years_per_gen 28 -o tree_53900000 --bp_of_interest 53900000 -o 53900000_tree
+~/populationgenomics/software/relate/scripts/TreeView/TreeView.sh --haps chr3.haps --sample chr3.sample --anc popsize.anc --mut popsize.mut --poplabels ~/populationgenomics/students/mari256s/project/all_inds.txt --years_per_gen 28 --bp_of_interest 53900000 -o 53900000_tree
 ```
 ```
-~/populationgenomics/software/relate/scripts/TreeView/TreeView.sh --haps chr3.haps --sample chr3.sample --anc popsize.anc --mut popsize.mut --poplabels ~/populationgenomics/students/mari256s/project/all_inds.txt --years_per_gen 28 -o tree_46200000 --bp_of_interest 46200000 -o 46200000_tree
+~/populationgenomics/software/relate/scripts/TreeView/TreeView.sh --haps chr3.haps --sample chr3.sample --anc popsize.anc --mut popsize.mut --poplabels ~/populationgenomics/students/mari256s/project/all_inds.txt --years_per_gen 28 --bp_of_interest 46200000 -o 46200000_tree
 ```
 ```
-~/populationgenomics/software/relate/scripts/TreeView/TreeView.sh --haps chr3.haps --sample chr3.sample --anc popsize.anc --mut popsize.mut --poplabels ~/populationgenomics/students/mari256s/project/all_inds.txt --years_per_gen 28 -o tree_51200000 --bp_of_interest 51200000 -o 51200000_tree
+~/populationgenomics/software/relate/scripts/TreeView/TreeView.sh --haps chr3.haps --sample chr3.sample --anc popsize.anc --mut popsize.mut --poplabels ~/populationgenomics/students/mari256s/project/all_inds.txt --years_per_gen 28 --bp_of_interest 51200000 -o 51200000_tree
 ```
 ### Populations 
 #### YRI
@@ -167,13 +167,13 @@ CLUES should be used in idividual SNPs
 ### GWD
 Use relate to sample branch lengths
 ```
-~/populationgenomics/software/relate/scripts/SampleBranchLengths/SampleBranchLengths.sh -i popsize_GWD -o chr3_GWD_relate_resample_46658737 -m 1.25e-8 --coal popsize_GWD.coal --format b --num_samples 100 --first-bp 46658737 --last-bp 46658737
+~/populationgenomics/software/relate/scripts/SampleBranchLengths/SampleBranchLengths.sh -i popsize_GWD -o chr3_GWD_relate_resample_46658737_500 -m 1.25e-8 --coal popsize_GWD.coal --format b --num_samples 500 --first-bp 46658737 --last-bp 46658737
 ```
 Run CLUES from CLUES folder
 ```
-python inference.py --times ~/populationgenomics/students/mari256s/project/relate/GWD/chr3_GWD_relate_resample_46658737 --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_GWD_46658737 
+python inference.py --times ~/populationgenomics/students/mari256s/project/relate/GWD/chr3_GWD_relate_resample_46658737 --coal ~/populationgenomics/students/mari256s/project/relate/GWD/popsize_GWD.coal --burnin 60 --out ~/populationgenomics/students/mari256s/project/clues/selection_clues_GWD_46658737_500_burnin_coal 
 ```
 Plot trajectory 
 ```
-python plot_traj_Maria.py ~/populationgenomics/students/mari256s/project/clues/selection_clues_GWD_46658737  ~/populationgenomics/students/mari256s/project/clues/traj_plots/traj_clues_GWD_46658737
+python plot_traj_Maria.py ~/populationgenomics/students/mari256s/project/clues/selection_clues_GWD_46658737_burnin_coal  ~/populationgenomics/students/mari256s/project/clues/traj_plots/traj_clues_GWD_46658737_burnin_coal
 ```
